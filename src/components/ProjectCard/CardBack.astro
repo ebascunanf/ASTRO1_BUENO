@@ -1,0 +1,25 @@
+---
+interface Props {
+  modelUrl: string;
+}
+
+const { modelUrl } = Astro.props;
+---
+
+<div class="absolute inset-0 w-full h-full [backface-visibility:hidden] [transform:rotateY(180deg)]">
+  <iframe
+    src={modelUrl}
+    class="w-full h-full border-0"
+    allowfullscreen
+  ></iframe>
+  <button
+    class="absolute bottom-4 left-4 bg-red-600 text-white px-4 py-2 rounded-lg hover:bg-red-700 transition-colors flex items-center space-x-2 z-10"
+    data-view-front
+  >
+    <svg xmlns="http://www.w3.org/2000/svg" class="w-5 h-5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+      <path d="M14 9l-6 6"/>
+      <path d="M9 9h5v5"/>
+    </svg>
+    <span>Volver a Descripción</span>
+  </button>
+</div>

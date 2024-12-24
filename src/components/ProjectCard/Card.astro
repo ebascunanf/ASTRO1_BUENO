@@ -1,0 +1,30 @@
+---
+import type { Project } from '../../types/projects';
+import CardFront from './CardFront.astro';
+import CardBack from './CardBack.astro';
+
+interface Props extends Project {}
+
+const props = Astro.props;
+---
+
+<div class="bg-white rounded-xl shadow-lg overflow-hidden">
+  <div class="relative [perspective:1000px]">
+    <div 
+      class="relative w-full transition-transform duration-700 [transform-style:preserve-3d]" 
+      data-card-inner
+    >
+      <CardFront {...props} />
+      <CardBack modelUrl={props.modelUrl} />
+    </div>
+  </div>
+</div>
+
+<script>
+  import { initializeCard } from './cardController';
+  
+  // Initialize all cards
+  document.querySelectorAll('[data-card-inner]').forEach(card => {
+    initializeCard(card);
+  });
+</script>

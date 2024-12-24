@@ -1,0 +1,12 @@
+.rotate-y-180 {
+  transform: rotateY(180deg);
+}
+
+[data-card-inner] {
+  transition: transform 0.7s;
+  transform-style: preserve-3d;
+}
+
+[data-carousel-slide] {
+  transition: opacity 0.5s;
+}
